@@ -54,6 +54,12 @@ if is_flash_attn_2_available():
     from flash_attn import flash_attn_func, flash_attn_varlen_func
     from flash_attn.bert_padding import (index_first_axis, pad_input,
                                          unpad_input)
+else:
+    from flash_attn.flash_attn_interface import flash_attn_func 
+    from flash_attn.flash_attn_interface import flash_attn_unpadded_func as flash_attn_varlen_func
+
+    from flash_attn.bert_padding import (index_first_axis, pad_input,
+                                         unpad_input)
 
 logger = logging.get_logger(__name__)
 
